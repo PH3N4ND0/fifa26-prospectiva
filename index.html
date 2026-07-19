@@ -17,11 +17,9 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #04060c; }
         .mono { font-family: 'JetBrains Mono', monospace; }
         
-        /* Ocultar barra de scroll en el menú móvil para mantener estética premium */
         .scrollbar-none::-webkit-scrollbar { display: none; }
         .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Tooltips interactivos elegantes */
         .info-tooltip {
             position: relative;
             cursor: help;
@@ -86,7 +84,6 @@
 </head>
 <body class="text-slate-100 min-h-screen custom-scrollbar overflow-x-hidden">
 
-    <!-- NAVEGACIÓN PRINCIPAL RESPONSIBA -->
     <nav class="bg-[#0b0f19] border-b border-slate-800 sticky top-0 z-[100] shadow-xl">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex items-center justify-between h-16 border-b border-slate-800/50">
@@ -116,7 +113,6 @@
         </div>
     </nav>
 
-    <!-- CABECERA CON RELOJ Y CONTADOR DE VISITAS -->
     <header class="relative border-b border-slate-900 bg-gradient-to-b from-[#0b0f19] to-[#04060c] py-12 sm:py-16">
         <div class="max-w-6xl mx-auto px-4 text-center space-y-5 relative z-10">
             <span class="px-4 py-1.5 text-[10px] sm:text-xs font-bold tracking-widest text-emerald-400 bg-emerald-950/40 border border-emerald-800/60 rounded-full uppercase shadow-lg">
@@ -126,18 +122,15 @@
                 El Filtro de la Entropía Física: España vs. Argentina
             </h1>
             
-            <!-- RELOJ DE CONTEO EN TIEMPO REAL -->
             <div class="pt-2">
                 <div id="telemetry-clock" class="mono text-[10px] sm:text-sm font-bold text-amber-400 bg-slate-950/90 border border-slate-800 px-5 py-2.5 rounded-2xl inline-flex items-center gap-2 shadow-2xl tracking-wide">
                     <i class="fa-solid fa-clock text-amber-500 animate-pulse"></i> Sincronizando datos...
                 </div>
             </div>
 
-            <!-- CONTADOR DE VISITAS GLOBAL (API EXTERNA) -->
-            <div class="flex justify-center items-center gap-3 pt-2 opacity-80 hover:opacity-100 transition duration-300">
-                <span class="text-[9px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest">Impacto Analítico:</span>
-                <!-- Se utiliza hits.seeyoufarm conectado a la URL del usuario y estilizado con colores Tailwind (#0B0F19 y #10B981) -->
-                <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fph3n4nd0.github.io%2Ffifa26-prospectiva&count_bg=%2310B981&title_bg=%230B0F19&icon=&icon_color=%23E7E7E7&title=CONSULTAS&edge_flat=true" alt="Contador de Visitas" class="h-5 sm:h-6 rounded shadow-lg border border-slate-800">
+            <!-- CONTADOR DE VISITAS MEJORADO Y ULTRA-ESTABLE (GITHUB NATIVE) -->
+            <div class="flex justify-center items-center pt-3 opacity-90 hover:opacity-100 transition duration-300">
+                <img src="https://komarev.com/ghpvc/?username=ph3n4nd0.fifa26-prospectiva&label=CONSULTAS+GLOBALES&color=10b981&style=flat-square" alt="Contador de Visitas" class="h-5 sm:h-6 rounded shadow-lg border border-slate-800">
             </div>
 
             <p class="text-xs sm:text-base text-slate-400 max-w-4xl mx-auto leading-relaxed pt-2">
@@ -149,25 +142,20 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
 
-        <!-- ========================================== -->
-        <!-- PESTAÑA 1: CUADRO DIAGNÓSTICO              -->
-        <!-- ========================================== -->
+        <!-- TAB 1: CUADRO DIAGNÓSTICO -->
         <div id="tab-dashboard" class="tab-content space-y-8 sm:space-y-10">
-            <!-- PREDICCIÓN MONTE CARLO -->
             <div class="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
                 <h3 class="text-xs sm:text-sm font-bold tracking-widest text-slate-400 uppercase text-center mb-6 sm:mb-8 relative z-10">
                     Probabilidad de Consagración (Monte Carlo / 10,000 Iteraciones)
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-6 sm:gap-8 items-center relative z-10">
-                    <!-- ESPAÑA -->
                     <div class="md:col-span-2 text-center md:text-left space-y-2">
                         <span class="text-sm font-black text-red-500 uppercase tracking-widest block">🇪🇸 La Roja</span>
                         <span class="text-5xl sm:text-6xl font-black text-white block tracking-tight drop-shadow-md">73.06%</span>
                         <p class="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
-                            Ventaja crítica otorgada por su <span class="info-tooltip">frescura neuromuscular<span class="tooltip-box"><strong class="text-red-400 block mb-1">Cero Minutos de Prórroga:</strong> España ha resuelto todas sus eliminatorias en los 90 minutos. Su posesión vertical ha minimizado el impacto del factor climático, llegando a la final en plenitud.</span></span>.
+                            Ventaja crítica otorgada por su <span class="info-tooltip">frescura neuromuscular<span class="tooltip-box"><strong class="text-red-400 block mb-1">Cero Minutos de Prórroga:</strong> España ha resuelto todas sus eliminatorias en los 90 minutos. Su posesión vertical ha minimizado el impacto del factor climático.</span></span>.
                         </p>
                     </div>
-                    <!-- BARRA -->
                     <div class="md:col-span-1 space-y-3">
                         <div class="w-full bg-slate-950 h-5 sm:h-6 rounded-full overflow-hidden flex border border-slate-700 shadow-inner">
                             <div class="bg-gradient-to-r from-red-600 to-red-500 h-full rounded-full" style="width: 73.06%"></div>
@@ -178,7 +166,6 @@
                             <span>ARG</span>
                         </div>
                     </div>
-                    <!-- ARGENTINA -->
                     <div class="md:col-span-2 text-center md:text-right space-y-2">
                         <span class="text-sm font-black text-sky-400 uppercase tracking-widest block">🇦🇷 Albiceleste</span>
                         <span class="text-5xl sm:text-6xl font-black text-white block tracking-tight drop-shadow-md">26.94%</span>
@@ -189,7 +176,6 @@
                 </div>
             </div>
 
-            <!-- MÉTRICAS INFOGRÁFICAS -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 <div class="bg-[#0b0f19] border border-slate-800 p-5 sm:p-6 rounded-2xl flex flex-col justify-between space-y-3">
                     <span class="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider block">Solidez Coral</span>
@@ -234,9 +220,7 @@
             </div>
         </div>
 
-        <!-- ========================================== -->
-        <!-- PESTAÑA 2: PIZARRA TÁCTICA MULTI-ESCENARIO -->
-        <!-- ========================================== -->
+        <!-- TAB 2: PIZARRA TÁCTICA MULTI-ESCENARIO -->
         <div id="tab-tactical" class="tab-content hidden space-y-8 sm:space-y-10">
             <div class="flex items-center space-x-4">
                 <div class="w-2 h-8 bg-emerald-500 rounded-full"></div>
@@ -246,22 +230,18 @@
             <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-8 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
                 <div class="flex flex-col space-y-3">
                     <h3 class="text-[10px] sm:text-xs font-bold tracking-widest text-slate-400 uppercase border-b border-slate-800 pb-3 mb-1">Clips de Rendimiento</h3>
-                    
                     <button type="button" onclick="setTacticalScene(1)" id="btn-scene-1" class="scene-btn bg-slate-950 border-emerald-500 border rounded-xl p-3 sm:p-4 text-left transition relative">
                         <span class="text-[10px] sm:text-xs font-bold text-emerald-400 block mb-1">CLIP 1 • OFENSIVA ESPAÑA</span>
                         <span class="text-xs sm:text-sm font-bold text-white block">Atracción y Aislamiento</span>
                     </button>
-                    
                     <button type="button" onclick="setTacticalScene(2)" id="btn-scene-2" class="scene-btn bg-slate-800/40 border-slate-800 border hover:border-slate-600 rounded-xl p-3 sm:p-4 text-left transition relative">
                         <span class="text-[10px] sm:text-xs font-bold text-slate-500 block mb-1">CLIP 2 • DILEMA DEFENSIVO</span>
                         <span class="text-xs sm:text-sm font-bold text-slate-300 block">El Overlap de Pedro Porro</span>
                     </button>
-
                     <button type="button" onclick="setTacticalScene(3)" id="btn-scene-3" class="scene-btn bg-slate-800/40 border-slate-800 border hover:border-slate-600 rounded-xl p-3 sm:p-4 text-left transition relative">
                         <span class="text-[10px] sm:text-xs font-bold text-slate-500 block mb-1">CLIP 3 • ZONAS CRÍTICAS</span>
                         <span class="text-xs sm:text-sm font-bold text-slate-300 block">Faltas en el "Half-Space"</span>
                     </button>
-
                     <button type="button" onclick="setTacticalScene(4)" id="btn-scene-4" class="scene-btn bg-slate-800/40 border-slate-800 border hover:border-slate-600 rounded-xl p-3 sm:p-4 text-left transition relative">
                         <span class="text-[10px] sm:text-xs font-bold text-sky-400 block mb-1">CLIP 4 • DEFENSA ESPAÑA</span>
                         <span class="text-xs sm:text-sm font-bold text-slate-300 block">Cucurella vs. Deambulación</span>
@@ -270,20 +250,17 @@
 
                 <div class="lg:col-span-2 flex flex-col space-y-6">
                     <div class="bg-[#04060c] border-2 border-slate-800 rounded-2xl h-64 sm:h-80 relative flex items-center justify-center overflow-hidden shadow-inner" id="tactical-board">
+                        <!-- Contenido inyectado por JS -->
                     </div>
                     <div class="bg-slate-950 p-5 sm:p-6 rounded-xl border border-slate-800">
                         <h4 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-2" id="tactical-title">Fase de Atracción</h4>
-                        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" id="tactical-desc">
-                            Seleccione un clip en el menú para cargar el análisis.
-                        </p>
+                        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" id="tactical-desc">Seleccione un clip en el menú para cargar el análisis.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ========================================== -->
-        <!-- PESTAÑA 3: LABORATORIO DE PENALTIS         -->
-        <!-- ========================================== -->
+        <!-- TAB 3: LABORATORIO DE PENALTIS -->
         <div id="tab-simulator" class="tab-content hidden space-y-8 sm:space-y-10">
             <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                 <div class="flex items-center space-x-4">
@@ -291,10 +268,11 @@
                     <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Laboratorio Predictivo de Penaltis</h2>
                 </div>
                 <div class="text-[10px] sm:text-xs font-bold text-amber-500 bg-amber-950/40 border border-amber-900/50 px-4 py-2 rounded-lg">
-                    <i class="fa-solid fa-triangle-exclamation mr-1"></i> Jugadores como Álvaro Morata excluidos (No presentes en convocatoria final 2026).
+                    <i class="fa-solid fa-triangle-exclamation mr-1"></i> Jugadores como Álvaro Morata excluidos (No presentes en convocatoria 2026).
                 </div>
             </div>
             
+            <!-- PANEL DE SELECCIÓN -->
             <div class="bg-gradient-to-r from-slate-900 to-slate-950 border border-emerald-900/50 rounded-2xl p-5 sm:p-8 shadow-xl">
                 <h3 class="text-sm sm:text-base font-bold text-emerald-400 uppercase tracking-wider mb-2 flex items-center">
                     <i class="fa-solid fa-clipboard-user mr-2 text-lg"></i> Configuración de Tiradores
@@ -307,7 +285,7 @@
                     </label>
                     <label class="flex items-center gap-3 cursor-pointer group">
                         <input type="radio" name="sim_mode" value="manual" onchange="toggleManualMode(true)" class="w-4 h-4 sm:w-5 sm:h-5 accent-emerald-500 cursor-pointer">
-                        <span class="text-xs sm:text-sm font-bold text-slate-300 group-hover:text-emerald-400 transition">Elegir Jugadores Manualmente</span>
+                        <span class="text-xs sm:text-sm font-bold text-slate-300 group-hover:text-emerald-400 transition">Elegir Manualmente</span>
                     </label>
                 </div>
 
@@ -323,9 +301,11 @@
                 </div>
             </div>
 
+            <!-- CONSOLA DE DISPARO -->
             <div class="bg-[#0b0f19] border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl flex flex-col lg:flex-row gap-6 sm:gap-8">
                 <div class="flex-1 flex flex-col justify-center bg-[#04060c] p-5 sm:p-6 rounded-2xl border border-slate-800 relative overflow-hidden">
                     <span class="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest block text-center mb-6">Tirador en Línea</span>
+                    
                     <div class="flex flex-col items-center text-center space-y-3 relative z-10">
                         <div class="w-16 h-16 sm:w-20 sm:h-20 bg-slate-900 border-2 border-slate-700 rounded-full flex items-center justify-center text-2xl sm:text-3xl shadow-lg" id="active-flag">⚽</div>
                         <div>
@@ -375,9 +355,7 @@
             </div>
         </div>
 
-        <!-- ========================================== -->
-        <!-- PESTAÑA 4: METODOLOGÍA FORMAL              -->
-        <!-- ========================================== -->
+        <!-- TAB 4: METODOLOGÍA FORMAL -->
         <div id="tab-math" class="tab-content hidden bg-slate-900 border border-slate-800 rounded-3xl p-8 lg:p-12 space-y-6">
             <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">Modelo Matemático Dixon-Coles Bivariado</h2>
             <div class="bg-[#04060c] p-6 sm:p-8 rounded-2xl border border-slate-800 text-center text-lg sm:text-2xl mb-8 font-serif overflow-x-auto">
@@ -392,12 +370,12 @@
     </main>
 
     <footer class="border-t border-slate-900 bg-[#04060c] py-8 text-center text-[10px] sm:text-xs text-slate-600 font-medium">
-        <p>© 2026 Inteligencia Predictiva Platform. Diseño optimizado y 100% responsivo.</p>
+        <p>© 2026 DMD-26 System. Visualización de datos fluida en cualquier dispositivo.</p>
     </footer>
 
-    <!-- LOGICA JAVASCRIPT CORREGIDA Y ROBUSTA -->
+    <!-- LÓGICA DE CONTROL JAVASCRIPT -->
     <script>
-        // Reloj de Telemetría Responsivo
+        // RELOJ DE TELEMETRÍA DINÁMICO
         const matchTargetTime = new Date("2026-07-19T22:00:00+02:00").getTime();
 
         function updateTelemetryClock() {
@@ -414,10 +392,10 @@
 
             if (difference > 0) {
                 clockElement.innerHTML = `<i class="fa-solid fa-hourglass-start text-emerald-400 animate-spin"></i> FALTAN: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-                clockElement.className = "mono text-[10px] sm:text-xs font-bold text-emerald-400 bg-slate-950/90 border border-emerald-900/40 px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl inline-flex items-center gap-2 sm:gap-3 shadow-2xl tracking-wide";
+                clockElement.className = "mono text-[10px] sm:text-sm font-bold text-emerald-400 bg-slate-950/90 border border-emerald-900/40 px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl inline-flex items-center gap-2 sm:gap-3 shadow-2xl tracking-wide";
             } else {
                 clockElement.innerHTML = `<i class="fa-solid fa-stopwatch text-amber-500 animate-pulse"></i> TRANSCURRIDO: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-                clockElement.className = "mono text-[10px] sm:text-xs font-bold text-amber-400 bg-slate-950/90 border border-slate-800 px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl inline-flex items-center gap-2 sm:gap-3 shadow-2xl tracking-wide";
+                clockElement.className = "mono text-[10px] sm:text-sm font-bold text-amber-400 bg-slate-950/90 border border-slate-800 px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl inline-flex items-center gap-2 sm:gap-3 shadow-2xl tracking-wide";
             }
         }
         setInterval(updateTelemetryClock, 1000);
@@ -426,15 +404,13 @@
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('text-emerald-400', 'border-emerald-400', 'text-white'));
-            
             const tabContent = document.getElementById('tab-' + tabId);
             const tabBtn = document.getElementById('tab-' + tabId + '-btn');
-            
             if (tabContent) tabContent.classList.remove('hidden');
             if (tabBtn) tabBtn.classList.add('text-emerald-400', 'border-emerald-400');
         }
 
-        // Pizarra Táctica (Gráficos Nativos CSS 100% Porcentuales)
+        // Pizarra Táctica de Alta Respuesta
         const tacticalScenes = {
             1: {
                 title: "Atracción y Aislamiento 1v1",
@@ -486,7 +462,7 @@
         }
         setTacticalScene(1);
 
-        // Laboratorio de Penaltis
+        // Simulador de Penaltis
         const fullDBArg = [
             { id: "a1", name: "Lionel Messi", acc: 88, foot: "ZURDA", profile: "Busca el ángulo bajo derecho con sutileza. Inmune a la presión." },
             { id: "a2", name: "Julián Álvarez", acc: 82, foot: "DIESTRA", profile: "Tiro violento cruzado a media altura por pura potencia física." },
@@ -624,7 +600,6 @@
             updateActiveKicker();
         }
 
-        // Init
         switchTab('dashboard');
     </script>
 </body>
