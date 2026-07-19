@@ -86,10 +86,9 @@
 </head>
 <body class="text-slate-100 min-h-screen custom-scrollbar overflow-x-hidden">
 
-    <!-- NAVEGACIÓN PRINCIPAL RESPONSIBA (CORREGIDA PARA SMARTPHONES) -->
+    <!-- NAVEGACIÓN PRINCIPAL RESPONSIBA -->
     <nav class="bg-[#0b0f19] border-b border-slate-800 sticky top-0 z-[100] shadow-xl">
         <div class="max-w-7xl mx-auto px-4">
-            <!-- Bloque superior de Branding -->
             <div class="flex items-center justify-between h-16 border-b border-slate-800/50">
                 <div class="flex items-center space-x-3">
                     <div class="bg-gradient-to-tr from-emerald-600 to-teal-400 p-2 rounded-lg text-slate-950 font-extrabold shadow-lg">
@@ -106,7 +105,6 @@
                 </div>
             </div>
             
-            <!-- Contenedor Deslizante Táctil para Móviles -->
             <div class="w-full overflow-x-auto scrollbar-none py-3">
                 <div class="flex space-x-6 px-1 w-max">
                     <button type="button" onclick="switchTab('dashboard')" id="tab-dashboard-btn" class="tab-btn shrink-0 text-xs sm:text-sm font-bold uppercase tracking-wider text-emerald-400 border-b-2 border-emerald-400 pb-1 cursor-pointer transition">Cuadro Diagnóstico</button>
@@ -118,7 +116,7 @@
         </div>
     </nav>
 
-    <!-- CABECERA CON RELOJ DE TELEMETRÍA DINÁMICO -->
+    <!-- CABECERA CON RELOJ Y CONTADOR DE VISITAS -->
     <header class="relative border-b border-slate-900 bg-gradient-to-b from-[#0b0f19] to-[#04060c] py-12 sm:py-16">
         <div class="max-w-6xl mx-auto px-4 text-center space-y-5 relative z-10">
             <span class="px-4 py-1.5 text-[10px] sm:text-xs font-bold tracking-widest text-emerald-400 bg-emerald-950/40 border border-emerald-800/60 rounded-full uppercase shadow-lg">
@@ -129,13 +127,20 @@
             </h1>
             
             <!-- RELOJ DE CONTEO EN TIEMPO REAL -->
-            <div class="pt-2 pb-2">
+            <div class="pt-2">
                 <div id="telemetry-clock" class="mono text-[10px] sm:text-sm font-bold text-amber-400 bg-slate-950/90 border border-slate-800 px-5 py-2.5 rounded-2xl inline-flex items-center gap-2 shadow-2xl tracking-wide">
                     <i class="fa-solid fa-clock text-amber-500 animate-pulse"></i> Sincronizando datos...
                 </div>
             </div>
 
-            <p class="text-xs sm:text-base text-slate-400 max-w-4xl mx-auto leading-relaxed">
+            <!-- CONTADOR DE VISITAS GLOBAL (API EXTERNA) -->
+            <div class="flex justify-center items-center gap-3 pt-2 opacity-80 hover:opacity-100 transition duration-300">
+                <span class="text-[9px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest">Impacto Analítico:</span>
+                <!-- Se utiliza hits.seeyoufarm conectado a la URL del usuario y estilizado con colores Tailwind (#0B0F19 y #10B981) -->
+                <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fph3n4nd0.github.io%2Ffifa26-prospectiva&count_bg=%2310B981&title_bg=%230B0F19&icon=&icon_color=%23E7E7E7&title=CONSULTAS&edge_flat=true" alt="Contador de Visitas" class="h-5 sm:h-6 rounded shadow-lg border border-slate-800">
+            </div>
+
+            <p class="text-xs sm:text-base text-slate-400 max-w-4xl mx-auto leading-relaxed pt-2">
                 Pase el ratón o pulse sobre los <span class="info-tooltip">indicadores subrayados<span class="tooltip-box"><strong class="text-emerald-400 block mb-2"><i class="fa-solid fa-lightbulb"></i> Herramienta Interactiva:</strong> Este es un "Scouting Tooltip". Funciona en móvil al pulsarlo, desplegando el argumento matemático o táctico que justifica cada métrica en tiempo real.</span></span> para desplegar la justificación táctica elaborada por el motor predictivo DMD-26.
             </p>
         </div>
@@ -159,7 +164,7 @@
                         <span class="text-sm font-black text-red-500 uppercase tracking-widest block">🇪🇸 La Roja</span>
                         <span class="text-5xl sm:text-6xl font-black text-white block tracking-tight drop-shadow-md">73.06%</span>
                         <p class="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
-                            Ventaja crítica otorgada por su <span class="info-tooltip">frescura neuromuscular<span class="tooltip-box"><strong class="text-red-400 block mb-1">Cero Minutos de Prórroga:</strong> España ha resuelto todas sus eliminatorias en los 90 minutos. Su posesión vertical ha minimizado el impacto del factor climático, llegando a la final en plenitud[cite: 13].</span></span>.
+                            Ventaja crítica otorgada por su <span class="info-tooltip">frescura neuromuscular<span class="tooltip-box"><strong class="text-red-400 block mb-1">Cero Minutos de Prórroga:</strong> España ha resuelto todas sus eliminatorias en los 90 minutos. Su posesión vertical ha minimizado el impacto del factor climático, llegando a la final en plenitud.</span></span>.
                         </p>
                     </div>
                     <!-- BARRA -->
@@ -178,7 +183,7 @@
                         <span class="text-sm font-black text-sky-400 uppercase tracking-widest block">🇦🇷 Albiceleste</span>
                         <span class="text-5xl sm:text-6xl font-black text-white block tracking-tight drop-shadow-md">26.94%</span>
                         <p class="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
-                            Penalizada por la <span class="info-tooltip">entropía biológica<span class="tooltip-box"><strong class="text-sky-400 block mb-1">Fatiga Acumulada:</strong> Argentina llega al límite tras disputar tres extenuantes prórrogas. Este desgaste reduce matemáticamente su capacidad de repliegue defensivo[cite: 13].</span></span> acumulada en las eliminatorias.
+                            Penalizada por la <span class="info-tooltip">entropía biológica<span class="tooltip-box"><strong class="text-sky-400 block mb-1">Fatiga Acumulada:</strong> Argentina llega al límite tras disputar tres extenuantes prórrogas. Este desgaste reduce matemáticamente su capacidad de repliegue defensivo.</span></span> acumulada en eliminatorias.
                         </p>
                     </div>
                 </div>
@@ -193,7 +198,7 @@
                         <span class="text-[10px] sm:text-xs text-emerald-400 font-bold">Vallas Invictas</span>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                        Récord de 6 porterías a cero en 7 partidos, <span class="info-tooltip">encajando solo 1 gol<span class="tooltip-box">Convertida en la selección más impenetrable del torneo, marcando un hito mundialista[cite: 13].</span></span>.
+                        Récord de 6 porterías a cero en 7 partidos, <span class="info-tooltip">encajando solo 1 gol<span class="tooltip-box">Convertida en la selección más impenetrable del torneo, marcando un hito mundialista.</span></span>.
                     </p>
                 </div>
                 <div class="bg-[#0b0f19] border border-slate-800 p-5 sm:p-6 rounded-2xl flex flex-col justify-between space-y-3">
@@ -203,7 +208,7 @@
                         <span class="text-[10px] sm:text-xs text-slate-500 font-bold">Vulnerabilidad</span>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                        Desviación matemática que castiga la defensa argentina debido a la <span class="info-tooltip">baja de Juan Foyth<span class="tooltip-box">La ausencia estructural disparó los goles encajados en rondas críticas, elevando el parámetro de riesgo a 0.93[cite: 13].</span></span>.
+                        Desviación matemática que castiga la defensa argentina debido a la <span class="info-tooltip">baja de Juan Foyth<span class="tooltip-box">La ausencia estructural disparó los goles encajados en rondas críticas, elevando el parámetro de riesgo a 0.93.</span></span>.
                     </p>
                 </div>
                 <div class="bg-[#0b0f19] border border-slate-800 p-5 sm:p-6 rounded-2xl flex flex-col justify-between space-y-3">
@@ -213,7 +218,7 @@
                         <span class="text-[10px] sm:text-xs text-slate-500 font-bold">Acierto Rodri</span>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                        Rodri Hernández actúa como <span class="info-tooltip">ancla térmica<span class="tooltip-box">Con 601 pases completados, anestesia el ritmo e impide transiciones rápidas del rival bajo calor extremo (>30°C)[cite: 13].</span></span>, monopolizando 3,971 pases.
+                        Rodri Hernández actúa como <span class="info-tooltip">ancla térmica<span class="tooltip-box">Con 601 pases completados, anestesia el ritmo e impide transiciones rápidas del rival bajo calor extremo (>30°C).</span></span>, monopolizando 3,971 pases.
                     </p>
                 </div>
                 <div class="bg-[#0b0f19] border border-slate-800 p-5 sm:p-6 rounded-2xl flex flex-col justify-between space-y-3">
@@ -223,7 +228,7 @@
                         <span class="text-[10px] sm:text-xs text-slate-500 font-bold">vs. 0.77 xG</span>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                        Proyección ofensiva mermada para Argentina por la <span class="info-tooltip">baja de De Paul<span class="tooltip-box">Scaloni introduce a Simeone para tareas netamente defensivas, desconectando a Messi de la medular y reduciendo el caudal creativo[cite: 13].</span></span>.
+                        Proyección ofensiva mermada para Argentina por la <span class="info-tooltip">baja de De Paul<span class="tooltip-box">Scaloni introduce a Simeone para tareas netamente defensivas, desconectando a Messi de la medular y reduciendo el caudal creativo.</span></span>.
                     </p>
                 </div>
             </div>
@@ -239,7 +244,6 @@
             </div>
             
             <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-8 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-                <!-- SELECTOR LATERAL RESPONSIVO -->
                 <div class="flex flex-col space-y-3">
                     <h3 class="text-[10px] sm:text-xs font-bold tracking-widest text-slate-400 uppercase border-b border-slate-800 pb-3 mb-1">Clips de Rendimiento</h3>
                     
@@ -264,12 +268,9 @@
                     </button>
                 </div>
 
-                <!-- ÁREA GRÁFICA RESPONSIVA (%) -->
                 <div class="lg:col-span-2 flex flex-col space-y-6">
                     <div class="bg-[#04060c] border-2 border-slate-800 rounded-2xl h-64 sm:h-80 relative flex items-center justify-center overflow-hidden shadow-inner" id="tactical-board">
-                        <!-- Contenido inyectado por JS (Usa % para ser responsive) -->
                     </div>
-                    
                     <div class="bg-slate-950 p-5 sm:p-6 rounded-xl border border-slate-800">
                         <h4 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-2" id="tactical-title">Fase de Atracción</h4>
                         <p class="text-xs sm:text-sm text-slate-400 leading-relaxed" id="tactical-desc">
@@ -293,8 +294,7 @@
                     <i class="fa-solid fa-triangle-exclamation mr-1"></i> Jugadores como Álvaro Morata excluidos (No presentes en convocatoria final 2026).
                 </div>
             </div>
-
-            <!-- PANEL DE SELECCIÓN MANUAL -->
+            
             <div class="bg-gradient-to-r from-slate-900 to-slate-950 border border-emerald-900/50 rounded-2xl p-5 sm:p-8 shadow-xl">
                 <h3 class="text-sm sm:text-base font-bold text-emerald-400 uppercase tracking-wider mb-2 flex items-center">
                     <i class="fa-solid fa-clipboard-user mr-2 text-lg"></i> Configuración de Tiradores
@@ -323,13 +323,9 @@
                 </div>
             </div>
 
-            <!-- CONSOLA CENTRAL -->
             <div class="bg-[#0b0f19] border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl flex flex-col lg:flex-row gap-6 sm:gap-8">
-                
-                <!-- TIRADOR ACTIVO -->
                 <div class="flex-1 flex flex-col justify-center bg-[#04060c] p-5 sm:p-6 rounded-2xl border border-slate-800 relative overflow-hidden">
                     <span class="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-widest block text-center mb-6">Tirador en Línea</span>
-                    
                     <div class="flex flex-col items-center text-center space-y-3 relative z-10">
                         <div class="w-16 h-16 sm:w-20 sm:h-20 bg-slate-900 border-2 border-slate-700 rounded-full flex items-center justify-center text-2xl sm:text-3xl shadow-lg" id="active-flag">⚽</div>
                         <div>
@@ -339,13 +335,10 @@
                                 <span class="bg-emerald-900/30 text-emerald-400 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-emerald-900/50" id="active-acc">Acierto: -%</span>
                             </div>
                         </div>
-                        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm mt-3 min-h-[60px]" id="active-desc">
-                            Pulse "Cargar Tanda" para confirmar alineaciones.
-                        </p>
+                        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm mt-3 min-h-[60px]" id="active-desc">Pulse "Cargar Tanda" para confirmar alineaciones.</p>
                     </div>
                 </div>
 
-                <!-- CONTROLES -->
                 <div class="flex-1 flex flex-col justify-between">
                     <div class="flex justify-center items-center gap-6 sm:gap-8 mb-6 bg-slate-900 py-6 sm:py-8 rounded-2xl border border-slate-800 shadow-inner">
                         <div class="text-center">
@@ -365,7 +358,7 @@
 
                     <div class="grid grid-cols-2 gap-3 sm:gap-4">
                         <button type="button" onclick="loadSimulation()" class="bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 sm:py-4 rounded-xl transition border border-slate-700 text-[10px] sm:text-sm uppercase tracking-wider shadow-md">
-                            <i class="fa-solid fa-cogs mr-1 sm:mr-2"></i> Cargar Tanda
+                            <i class="fa-solid fa-cogs mr-1 sm:mr-2"></i> Cargar
                         </button>
                         <button type="button" id="btn-fire" onclick="firePenalty()" class="bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black py-3 sm:py-4 rounded-xl transition shadow-lg shadow-emerald-900/40 text-[10px] sm:text-sm uppercase tracking-widest disabled:opacity-50 disabled:cursor-not-allowed" disabled>
                             Disparar <i class="fa-solid fa-bolt ml-1 sm:ml-2"></i>
@@ -392,8 +385,7 @@
                 $$\mu = \alpha_j \beta_i$$
             </div>
             <p class="text-sm sm:text-base text-slate-400 leading-relaxed max-w-4xl mx-auto text-left">
-                El sistema calcula la expectativa neta equilibrando la fuerza de ataque (\(\alpha\)) y la vulnerabilidad defensiva (\(\beta\)). El núcleo predictivo reside en el modificador climático (\(\delta_{\text{clima}}\)), que 
-                <span class="info-tooltip">penaliza con un factor reductor de 0.88<span class="tooltip-box"><strong class="text-white block mb-1">Ajuste de Supervivencia:</strong> Se aplica a plantillas obligadas a defender con baja posesión bajo calor extremo, disparando la fatiga en los últimos 30 minutos.</span></span> a combinaciones agotadas[cite: 5, 7].
+                El sistema calcula la expectativa neta equilibrando la fuerza de ataque (\(\alpha\)) y la vulnerabilidad defensiva (\(\beta\)). El núcleo predictivo reside en el modificador climático (\(\delta_{\text{clima}}\)), que <span class="info-tooltip">penaliza con un factor reductor de 0.88<span class="tooltip-box"><strong class="text-white block mb-1">Ajuste de Supervivencia:</strong> Se aplica a plantillas obligadas a defender con baja posesión bajo calor extremo, disparando la fatiga en los últimos 30 minutos.</span></span> a combinaciones agotadas.
             </p>
         </div>
 
@@ -406,7 +398,6 @@
     <!-- LOGICA JAVASCRIPT CORREGIDA Y ROBUSTA -->
     <script>
         // Reloj de Telemetría Responsivo
-        // Hora del partido oficial: 19 de Julio de 2026, 16:00 EDT / 22:00 CEST
         const matchTargetTime = new Date("2026-07-19T22:00:00+02:00").getTime();
 
         function updateTelemetryClock() {
@@ -432,7 +423,6 @@
         setInterval(updateTelemetryClock, 1000);
         updateTelemetryClock();
 
-        // Control de Pestañas
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('text-emerald-400', 'border-emerald-400', 'text-white'));
@@ -448,7 +438,7 @@
         const tacticalScenes = {
             1: {
                 title: "Atracción y Aislamiento 1v1",
-                desc: "España atrae la presión con Rodri. Olmo abre la diagonal. Yamal queda aislado pegado a la línea contra Tagliafico sin coberturas por la baja de De Paul[cite: 8].",
+                desc: "España atrae la presión con Rodri. Olmo abre la diagonal. Yamal queda aislado pegado a la línea contra Tagliafico sin coberturas por la baja de De Paul.",
                 html: `<div class="absolute inset-y-0 left-1/2 border-l border-dashed border-slate-700"></div>
                        <div class="absolute top-[25%] right-[20%] w-8 sm:w-10 h-8 sm:h-10 bg-red-600 rounded-full border-2 border-white flex items-center justify-center text-white font-black text-xs sm:text-base z-20 shadow-lg">Y</div>
                        <div class="absolute top-[25%] right-[10%] w-8 sm:w-10 h-8 sm:h-10 bg-sky-500 rounded-full border-2 border-white flex items-center justify-center text-slate-950 font-black text-xs sm:text-base z-10 shadow-lg">T</div>
@@ -456,7 +446,7 @@
             },
             2: {
                 title: "El Dilema del Overlap de Porro",
-                desc: "Yamal temporiza y Pedro Porro realiza un overlap a máxima intensidad[cite: 8]. Tagliafico queda expuesto: si tapa a Porro, Yamal tiene el disparo; si cubre el tiro, hay centro sin oposición.",
+                desc: "Yamal temporiza y Pedro Porro realiza un overlap a máxima intensidad. Tagliafico queda expuesto: si tapa a Porro, Yamal tiene el disparo; si cubre el tiro, hay centro sin oposición.",
                 html: `<div class="absolute inset-y-0 left-1/2 border-l border-dashed border-slate-700"></div>
                        <div class="absolute top-[35%] right-[25%] w-8 sm:w-10 h-8 sm:h-10 bg-red-600 rounded-full border-2 border-white flex items-center justify-center text-white font-black text-xs sm:text-base z-20 shadow-lg">Y</div>
                        <div class="absolute top-[35%] right-[15%] w-8 sm:w-10 h-8 sm:h-10 bg-sky-500 rounded-full border-2 border-white flex items-center justify-center text-slate-950 font-black text-xs sm:text-base z-10 shadow-lg">T</div>
@@ -464,7 +454,7 @@
             },
             3: {
                 title: "Infracciones Críticas (0.32 xG)",
-                desc: "Tagliafico llega tarde al achique ante el inside cut de Yamal. La falta técnica generada en el vértice del área eleva el peligro a 0.32 xG[cite: 8].",
+                desc: "Tagliafico llega tarde al achique ante el inside cut de Yamal. La falta técnica generada en el vértice del área eleva el peligro a 0.32 xG.",
                 html: `<div class="absolute inset-y-0 left-1/2 border-l border-dashed border-slate-700"></div>
                        <div class="absolute top-[50%] right-[30%] w-8 sm:w-10 h-8 sm:h-10 bg-red-600 rounded-full border-2 border-white flex items-center justify-center text-white font-black text-xs sm:text-base z-20 shadow-lg">Y</div>
                        <div class="absolute top-[50%] right-[25%] w-8 sm:w-10 h-8 sm:h-10 bg-sky-500 rounded-full border-2 border-white flex items-center justify-center text-slate-950 font-black text-xs sm:text-base z-10 opacity-80">T</div>
@@ -472,7 +462,7 @@
             },
             4: {
                 title: "Cucurella vs. Deambulación",
-                desc: "Cuando Messi retrocede a la banda para recibir y ahorrar energía, Cucurella anticipa con un marcaje zonal agresivo, forzándolo a retroceder de espaldas a la portería[cite: 13].",
+                desc: "Cuando Messi retrocede a la banda para recibir y ahorrar energía, Cucurella anticipa con un marcaje zonal agresivo, forzándolo a retroceder de espaldas a la portería.",
                 html: `<div class="absolute inset-y-0 left-1/2 border-l border-dashed border-slate-700"></div>
                        <div class="absolute top-[60%] left-[20%] w-8 sm:w-10 h-8 sm:h-10 bg-sky-500 rounded-full border-2 border-white flex items-center justify-center text-slate-950 font-black text-xs sm:text-base z-20 shadow-lg">M</div>
                        <div class="absolute top-[60%] left-[35%] w-8 sm:w-10 h-8 sm:h-10 bg-red-600 rounded-full border-2 border-white flex items-center justify-center text-white font-black text-xs sm:text-base z-10 shadow-lg">C</div>`
@@ -498,23 +488,23 @@
 
         // Laboratorio de Penaltis
         const fullDBArg = [
-            { id: "a1", name: "Lionel Messi", acc: 88, foot: "ZURDA", profile: "Busca el ángulo bajo derecho con sutileza. Inmune a la presión[cite: 12]." },
-            { id: "a2", name: "Julián Álvarez", acc: 82, foot: "DIESTRA", profile: "Tiro violento cruzado a media altura por pura potencia física[cite: 12]." },
-            { id: "a3", name: "Enzo Fernández", acc: 76, foot: "DIESTRA", profile: "Abre el pie; riesgo de impacto mordido por fatiga muscular[cite: 12]." },
-            { id: "a4", name: "A. Mac Allister", acc: 78, foot: "DIESTRA", profile: "Disparo firme cruzado a media altura, buscando colocación[cite: 12]." },
-            { id: "a5", name: "Lautaro Martínez", acc: 80, foot: "DIESTRA", profile: "Remate violento directo a la escuadra superior izquierda[cite: 12]." },
-            { id: "a6", name: "Cristian Romero", acc: 68, foot: "DIESTRA", profile: "Asegura con golpeo potente plano y directo al centro del arco[cite: 12]." },
-            { id: "a7", name: "Leandro Paredes", acc: 83, foot: "DIESTRA", profile: "Especialista clásico. Fuerte y casi siempre cruzado[cite: 12]." }
+            { id: "a1", name: "Lionel Messi", acc: 88, foot: "ZURDA", profile: "Busca el ángulo bajo derecho con sutileza. Inmune a la presión." },
+            { id: "a2", name: "Julián Álvarez", acc: 82, foot: "DIESTRA", profile: "Tiro violento cruzado a media altura por pura potencia física." },
+            { id: "a3", name: "Enzo Fernández", acc: 76, foot: "DIESTRA", profile: "Abre el pie; riesgo de impacto mordido por fatiga muscular." },
+            { id: "a4", name: "A. Mac Allister", acc: 78, foot: "DIESTRA", profile: "Disparo firme cruzado a media altura, buscando colocación." },
+            { id: "a5", name: "Lautaro Martínez", acc: 80, foot: "DIESTRA", profile: "Remate violento directo a la escuadra superior izquierda." },
+            { id: "a6", name: "Cristian Romero", acc: 68, foot: "DIESTRA", profile: "Asegura con golpeo potente plano y directo al centro del arco." },
+            { id: "a7", name: "Leandro Paredes", acc: 83, foot: "DIESTRA", profile: "Especialista clásico. Fuerte y casi siempre cruzado." }
         ];
 
         const fullDBEsp = [
-            { id: "e1", name: "Mikel Oyarzabal", acc: 85, foot: "ZURDA", profile: "Carrera lenta, espera el movimiento de barrido del portero[cite: 12]." },
-            { id: "e2", name: "Dani Olmo", acc: 78, foot: "DIESTRA", profile: "Ajustado al poste derecho. Sensible a la presión psicológica[cite: 12]." },
-            { id: "e3", name: "Rodri Hernández", acc: 84, foot: "DIESTRA", profile: "Frialdad absoluta; disparo seco, duro y alto al centro[cite: 12]." },
-            { id: "e4", name: "Lamine Yamal", acc: 83, foot: "ZURDA", profile: "Irreverencia; domina vaselinas sutiles (Panenka) al centro[cite: 12]." },
-            { id: "e5", name: "Nico Williams", acc: 81, foot: "DIESTRA", profile: "Derechazo raso, rápido y ajustado a la base del palo izquierdo[cite: 12]." },
-            { id: "e6", name: "Pedro Porro", acc: 79, foot: "DIESTRA", profile: "Latigazo cruzado y violento directo a la escuadra derecha[cite: 12]." },
-            { id: "e7", name: "Fabián Ruiz", acc: 81, foot: "ZURDA", profile: "Colocación pura de interior al ángulo abierto[cite: 12]." }
+            { id: "e1", name: "Mikel Oyarzabal", acc: 85, foot: "ZURDA", profile: "Carrera lenta, espera el movimiento de barrido del portero." },
+            { id: "e2", name: "Dani Olmo", acc: 78, foot: "DIESTRA", profile: "Ajustado al poste derecho. Sensible a la presión psicológica." },
+            { id: "e3", name: "Rodri Hernández", acc: 84, foot: "DIESTRA", profile: "Frialdad absoluta; disparo seco, duro y alto al centro." },
+            { id: "e4", name: "Lamine Yamal", acc: 83, foot: "ZURDA", profile: "Irreverencia; domina vaselinas sutiles (Panenka) al centro." },
+            { id: "e5", name: "Nico Williams", acc: 81, foot: "DIESTRA", profile: "Derechazo raso, rápido y ajustado a la base del palo izquierdo." },
+            { id: "e6", name: "Pedro Porro", acc: 79, foot: "DIESTRA", profile: "Latigazo cruzado y violento directo a la escuadra derecha." },
+            { id: "e7", name: "Fabián Ruiz", acc: 81, foot: "ZURDA", profile: "Colocación pura de interior al ángulo abierto." }
         ];
 
         function renderCheckboxes() {
