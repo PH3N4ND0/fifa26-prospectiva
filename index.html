@@ -3,347 +3,683 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIFA 26 | Cierre del Torneo y Gran Final</title>
+    <title>DMD-26 Analytics | Final Copa del Mundo 2026</title>
+    <!-- Tailwind CSS para diseño fluido y moderno -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para iconografía ejecutiva -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts para tipografía profesional -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- MathJax para el renderizado impecable de las ecuaciones del modelo -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        :root {
-            --bg-primary: #0b0f19;
-            --bg-secondary: #131c2e;
-            --bg-surface: #1e293b;
-            --accent-gold: #fbbf24;
-            --accent-green: #10b981;
-            --accent-red: #ef4444;
-            --accent-blue: #38bdf8;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: #334155;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-        }
-
         body {
-            background-color: var(--bg-primary);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 20px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header Premium */
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 30px;
-        }
-
-        header h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            color: #fff;
-        }
-
-        header h1 span {
-            color: var(--accent-gold);
-        }
-
-        header p {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-
-        /* Panel Métricas Clave */
-        .metrics-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .metric-tile {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .metric-tile h4 {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 5px;
-            letter-spacing: 0.05em;
-        }
-
-        .metric-tile .value {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-        }
-
-        /* Grid Principal */
-        .main-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
-        }
-
-        @media (max-width: 992px) {
-            .main-grid { grid-template-columns: 1fr; }
-        }
-
-        /* Bloques de Cruces */
-        .match-section {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-
-        .match-title {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 5px;
-        }
-
-        .versus-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin-bottom: 25px;
-            background: rgba(0,0,0,0.2);
-            padding: 20px;
-            border-radius: 12px;
-        }
-
-        .team-box {
-            text-align: center;
-            flex: 1;
-        }
-
-        .team-box h3 {
-            font-size: 1.6rem;
-            font-weight: 700;
-        }
-
-        .vs-circle {
-            background-color: var(--bg-surface);
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--accent-gold);
-            margin: 0 15px;
-            border: 1px solid var(--border-color);
-        }
-
-        /* Análisis Técnico */
-        .analysis-block {
-            margin-top: 20px;
-        }
-
-        .analysis-block h4 {
-            color: var(--accent-green);
-            font-size: 1rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .analysis-block p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-
-        /* Modelo Predictivo / Resultados */
-        .predictive-panel {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 30px;
-            height: fit-content;
-        }
-
-        .predictive-panel h2 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: #fff;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 5px;
-        }
-
-        .prob-row {
-            margin-bottom: 20px;
-        }
-
-        .prob-info {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.95rem;
-            margin-bottom: 5px;
-        }
-
-        .prob-bar-bg {
-            background-color: rgba(255,255,255,0.05);
-            height: 10px;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .prob-bar-fill {
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-gold));
-            height: 100%;
-            border-radius: 5px;
-        }
-
-        /* Banner Matchday */
-        .matchday-banner {
-            background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%);
-            border: 1px solid var(--accent-gold);
-            border-left: 4px solid var(--accent-gold);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .matchday-banner h3 {
-            color: var(--accent-gold);
-            margin-bottom: 5px;
-        }
-
-        .badge-live {
-            background-color: var(--accent-red);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 0.6; }
-            50% { opacity: 1; }
-            100% { opacity: 0.6; }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
         }
     </style>
 </head>
-<body>
+<body class="bg-[#0b0f19] text-slate-100 min-h-screen selection:bg-emerald-500 selection:text-slate-900">
 
-    <div class="container">
-        <header>
-            <h1>FIFA 2026 <span>MATCHDAY LIVE</span></h1>
-            <p>Gran Final y Cierre del Torneo Histórico de 48 Selecciones</p>
-        </header>
-
-        <!-- Datos Clave -->
-        <div class="metrics-bar">
-            <div class="metric-tile">
-                <h4>Partidos Disputados</h4>
-                <div class="value">103 / 104</div>
-            </div>
-            <div class="metric-tile">
-                <h4>Tercer Puesto</h4>
-                <div class="value" style="color: var(--accent-blue);">INGLATERRA</div>
-            </div>
-            <div class="metric-tile">
-                <h4>Día de Competición</h4>
-                <div class="value">39 de 39</div>
-            </div>
-            <div class="metric-tile">
-                <h4>Sede de la Final</h4>
-                <div class="value">MetLife Stadium</div>
+    <!-- NAV BAR -->
+    <nav class="border-b border-slate-800 bg-[#0f172a]/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-gradient-to-tr from-emerald-500 to-teal-500 p-2 rounded-lg text-slate-950 font-bold">
+                        <i class="fa-solid fa-chart-line-up"></i> DMD
+                    </div>
+                    <div>
+                        <span class="font-bold text-lg tracking-tight block">DMD-26 SYSTEM</span>
+                        <span class="text-xs text-slate-400 block -mt-1">Ciencia de Datos Aplicada</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
+                    <a href="#overview" class="hover:text-emerald-400 transition">Cuadro de Mando</a>
+                    <a href="#tactical" class="hover:text-emerald-400 transition">Pizarra Táctica</a>
+                    <a href="#simulator" class="hover:text-emerald-400 transition">Simulador Penaltis</a>
+                    <a href="#math" class="hover:text-emerald-400 transition">Metodología</a>
+                    <a href="#path" class="hover:text-emerald-400 transition">Trayectorias</a>
+                </div>
+                <div class="flex items-center space-x-3 text-xs bg-slate-800/60 border border-slate-700 px-3 py-1.5 rounded-full">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="font-semibold text-slate-200 uppercase tracking-wider">Final Matchday</span>
+                </div>
             </div>
         </div>
+    </nav>
 
-        <!-- Banner de Hoy: La Gran Final -->
-        <div class="matchday-banner">
-            <div>
-                <h3>🏆 ¡HOY ES LA GRAN FINAL! — 19 de Julio, 16:00 (Hora Local)</h3>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">La culminación del modelo DMD-26 enfrenta a los dos sistemas de mayor resiliencia táctica y metabólica del torneo.</p>
-            </div>
-            <div class="badge-live">HOY</div>
-        </div>
-
-        <!-- Layout de Análisis -->
-        <div class="main-grid">
-            
-            <!-- Columna de Cruces -->
-            <div class="matches-column">
-                
-                <!-- La Gran Final -->
-                <div class="match-section" style="border-color: var(--accent-gold); background: linear-gradient(180deg, var(--bg-secondary) 0%, rgba(251,191,36,0.02) 100%);">
-                    <div class="match-title" style="color: var(--accent-gold); font-weight: bold;">🔥 GRAN FINAL — New York / New Jersey</div>
-                    <div class="versus-container" style="border: 1px solid var(--accent-gold);">
-                        <div class="team-box"><h3>ESPAÑA</h3></div>
-                        <div class="vs-circle" style="background: var(--accent-gold); color: #000; font-weight: 800;">VS</div>
-                        <div class="team-box"><h3>ARGENTINA</h3></div>
-                    </div>
-                    <div class="analysis-block">
-                        <h4>El Veredicto Final: Monopolio del Ritmo contra Madurez Selectiva</h4>
-                        <p>España llega al partido 104 como el gran favorito métrico (25.60% inicial en el modelo DMD-26) gracias a su estrategia de congelación del ritmo mediante la circulación interior de Rodri y Pedri, minimizando el impacto del factor climático.[cite: 4, 5]</p>
-                        <p>Por su parte, la Argentina de Scaloni ha sabido desafiar las penalizaciones en su zaga central (parámetro β) administrando de manera milimétrica los tiempos muertos del partido e inclinando la balanza en zonas de máximo valor esperado con la irrupción de Nico Paz.[cite: 5]</p>
-                    </div>
-                </div>
-
-                <!-- Tercer Puesto (Ayer) -->
-                <div class="match-section" style="opacity: 0.85;">
-                    <div class="match-title">Consolación — Tercer Puesto (Ayer, 18 de Julio)</div>
-                    <div class="versus-container">
-                        <div class="team-box"><h3>FRANCIA</h3></div>
-                        <div class="vs-circle" style="color: var(--text-muted);">FT</div>
-                        <div class="team-box"><h3 style="color: var(--accent-blue);">INGLATERRA ✔</h3></div>
-                    </div>
-                    <div class="analysis-block">
-                        <h4>Resolución del Cruce Técnico</h4>
-                        <p>En el duelo por la medalla de bronce, la presión alta y directa del esquema de Thomas Tuchel en Inglaterra logró sobreponerse al cansancio metabólico acumulado y batió la rotación defensiva de Francia.[cite: 5] Con este resultado, Inglaterra sella una campaña sólida validando el "Efecto Tuchel" que los algoritmos de Opta AI habían anticipado con un rendimiento ascendente.[cite: 5]</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Columna Predictiva Base -->
-            <div class="predictive-panel">
-                <h2>Cruce Histórico del Éxito</h2>
-                <div class="prob-row">
-                    <div class="prob-info"><span>España (DMD-26 Max)</span> <strong>Favorito #1</strong></div>
-                    <div class="prob-bar-bg"><div class="prob-bar-fill" style="width: 100%;"></div></div>
-                </div>
-                <div class="prob-row">
-                    <div class="prob-info"><span>Argentina (Madurez Táctica)</span> <strong>Finalista</strong></div>
-                    <div class="prob-bar-bg"><div class="prob-bar-fill" style="width: 85%;"></div></div>
-                </div>
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 30px;">
-                    El torneo de 48 equipos demostró que la gestión física y la profundidad de banquillo superaron al valor nominal de las plantillas.[cite: 4, 5] Solo noventa minutos separan a un sistema de la gloria eterna.[cite: 4]
+    <!-- HERO SECTION -->
+    <header class="relative overflow-hidden py-16 border-b border-slate-800/80 bg-gradient-to-b from-[#0f172a] to-[#0b0f19]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="px-3 py-1 text-xs font-semibold tracking-wider text-emerald-400 bg-emerald-950/40 border border-emerald-800/50 rounded-full uppercase">
+                    MetLife Stadium | Nueva York / Nueva Jersey
+                </span>
+                <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+                    Radiografía Científica &amp; Prospectiva
+                </h1>
+                <p class="mt-2 text-xl text-slate-400">
+                    Modelización de Rendimiento Deportivo de la Gran Final: España vs. Argentina
                 </p>
+                <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
+                    <span class="bg-slate-800 px-4 py-2 rounded-lg border border-slate-700 font-medium">
+                        <i class="fa-solid fa-calendar text-emerald-400 mr-2"></i> 19 de Julio de 2026
+                    </span>
+                    <span class="bg-slate-800 px-4 py-2 rounded-lg border border-slate-700 font-medium">
+                        <i class="fa-solid fa-users text-emerald-400 mr-2"></i> 82,500 Espectadores
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- Fondo Decorativo Sutil -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-emerald-900/10 via-transparent to-transparent pointer-events-none"></div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+
+        <!-- SECTION 1: OVERVIEW METRIC -->
+        <section id="overview" class="space-y-6 scroll-mt-20">
+            <div class="flex items-center space-x-3">
+                <div class="w-1.5 h-6 bg-emerald-500 rounded-full"></div>
+                <h2 class="text-2xl font-extrabold text-white tracking-tight">Cuadro de Mando Comparativo</h2>
             </div>
 
-        </div>
-    </div>
+            <!-- PROBABILITIES PROBAR -->
+            <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 lg:p-8">
+                <h3 class="text-sm font-semibold tracking-wider text-slate-400 uppercase text-center mb-6">
+                    Probabilidad de Consagración de Título (Modelo DMD-26 de Monte Carlo)
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
+                    <div class="md:col-span-2 text-center md:text-left">
+                        <span class="text-xs font-bold text-red-500 uppercase tracking-widest block">🇪🇸 ESPAÑA</span>
+                        <span class="text-4xl sm:text-5xl font-extrabold text-white block mt-1">73.06%</span>
+                        <span class="text-xs text-slate-400 block mt-1">Sólida valla invicta y 0 min de prórroga acumulada.</span>
+                    </div>
+                    <div class="md:col-span-1 flex flex-col justify-center">
+                        <!-- Bar Progress Vertical/Horizontal -->
+                        <div class="w-full bg-slate-800 h-4 rounded-full overflow-hidden flex">
+                            <div class="bg-red-500 h-full" style="width: 73.06%"></div>
+                            <div class="bg-sky-400 h-full" style="width: 26.94%"></div>
+                        </div>
+                        <div class="flex justify-between text-[10px] text-slate-500 font-bold mt-2 uppercase tracking-wider">
+                            <span>España</span>
+                            <span>Argentina</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 text-center md:text-right">
+                        <span class="text-xs font-bold text-sky-400 uppercase tracking-widest block">🇦🇷 ARGENTINA</span>
+                        <span class="text-4xl sm:text-5xl font-extrabold text-white block mt-1">26.94%</span>
+                        <span class="text-xs text-slate-400 block mt-1">Alta resiliencia, pero acusando severa fatiga biológica.</span>
+                    </div>
+                </div>
+            </div>
 
-</body>
-</html>
+            <!-- METRIC CARDS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-slate-900/40 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition">
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Tasa de Vallas Invictas</span>
+                        <span class="text-emerald-400 text-xs font-semibold bg-emerald-950/50 px-2 py-0.5 rounded border border-emerald-900/50">Histórica</span>
+                    </div>
+                    <div class="mt-4 flex items-baseline space-x-2">
+                        <span class="text-3xl font-extrabold text-white">85.71%</span>
+                        <span class="text-xs text-slate-400">vs. 28.57%</span>
+                    </div>
+                    <p class="mt-2 text-xs text-slate-400">
+                        España posee 6 vallas invictas en 7 partidos disputados en el certamen (apenas 1 gol encajado).
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-slate-900/40 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition">
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Minutos Extra en Eliminatorias</span>
+                        <span class="text-red-400 text-xs font-semibold bg-red-950/50 px-2 py-0.5 rounded border border-red-900/50">Neuromuscular</span>
+                    </div>
+                    <div class="mt-4 flex items-baseline space-x-2">
+                        <span class="text-3xl font-extrabold text-white">0 min</span>
+                        <span class="text-xs text-slate-400">vs. 90 min</span>
+                    </div>
+                    <p class="mt-2 text-xs text-slate-400">
+                        Argentina disputó prórrogas severas en dieciseisavos (Cabo Verde) y cuartos (Suiza), sumado al desgaste en Atlanta.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-slate-900/40 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition">
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Parámetro de Vulnerabilidad (\(\beta\))</span>
+                        <span class="text-yellow-400 text-xs font-semibold bg-yellow-950/50 px-2 py-0.5 rounded border border-yellow-900/50">Ajuste Foyth</span>
+                    </div>
+                    <div class="mt-4 flex items-baseline space-x-2">
+                        <span class="text-3xl font-extrabold text-white">0.60</span>
+                        <span class="text-xs text-slate-400">vs. 0.93</span>
+                    </div>
+                    <p class="mt-2 text-xs text-slate-400">
+                        La baja estructural de Juan Foyth penalizó la zaga argentina en un \(\beta +0.08\), elevando su expectativa de goles recibidos.
+                    </p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-slate-900/40 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition">
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Goles Esperados Proyectados (90')</span>
+                        <span class="text-emerald-400 text-xs font-semibold bg-emerald-950/50 px-2 py-0.5 rounded border border-emerald-900/50">DMD-26</span>
+                    </div>
+                    <div class="mt-4 flex items-baseline space-x-2">
+                        <span class="text-3xl font-extrabold text-white">1.60</span>
+                        <span class="text-xs text-slate-400">vs. 0.77 xG</span>
+                    </div>
+                    <p class="mt-2 text-xs text-slate-400">
+                        El modelo predice una superioridad ofensiva española neta, reduciendo a Argentina debido a su mitigación táctica sin De Paul.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: INTERACTIVE PENALTY SIMULATOR -->
+        <section id="simulator" class="space-y-6 scroll-mt-20">
+            <div class="flex items-center space-x-3">
+                <div class="w-1.5 h-6 bg-emerald-500 rounded-full"></div>
+                <h2 class="text-2xl font-extrabold text-white tracking-tight">Simulador Estocástico de Penaltis</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- PANEL IZQUIERDO: SIMULADOR VISUAL -->
+                <div class="lg:col-span-2 bg-[#0f172a] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between min-h-[480px]">
+                    <div>
+                        <div class="flex justify-between items-center border-b border-slate-800 pb-4 mb-6">
+                            <div>
+                                <h3 class="font-bold text-white text-lg">Definición desde los once metros</h3>
+                                <span class="text-xs text-slate-400">MetLife Stadium (Fondo Norte)</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <div class="text-center">
+                                    <span class="text-[10px] font-bold text-red-500 block uppercase">ESP</span>
+                                    <span id="score-esp" class="text-3xl font-extrabold text-white">0</span>
+                                </div>
+                                <div class="text-center font-extrabold text-slate-600 text-2xl self-end">:</div>
+                                <div class="text-center">
+                                    <span class="text-[10px] font-bold text-sky-400 block uppercase">ARG</span>
+                                    <span id="score-arg" class="text-3xl font-extrabold text-white">0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VISUAL GOALFRAME -->
+                        <div class="relative w-full h-44 bg-slate-900 border-4 border-slate-700 rounded-t-xl mb-6 overflow-hidden flex items-center justify-center">
+                            <!-- Net Pattern Background -->
+                            <div class="absolute inset-0 bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
+                            
+                            <!-- GK Position Frame -->
+                            <div id="gk-frame" class="absolute bottom-0 w-24 h-32 flex flex-col justify-end items-center transition-all duration-500 ease-out transform translate-y-2">
+                                <div class="w-8 h-8 rounded-full bg-slate-400 border border-slate-200 mb-1 flex items-center justify-center">
+                                    <i class="fa-solid fa-user text-slate-950 text-xs"></i>
+                                </div>
+                                <div class="w-12 h-16 bg-slate-500 rounded-t-lg"></div>
+                                <span id="gk-name" class="text-[9px] font-bold bg-slate-950/80 px-1 py-0.5 rounded text-white -mt-1 block uppercase truncate max-w-full">SIMÓN</span>
+                            </div>
+
+                            <!-- BALL TARGET INDICATOR -->
+                            <div id="ball-target" class="absolute w-5 h-5 rounded-full bg-white border-2 border-slate-950 shadow-lg shadow-white/30 hidden transition-all duration-500 ease-out"></div>
+                            
+                            <!-- Interactive Message overlay -->
+                            <div id="visual-cue" class="absolute text-sm font-bold text-emerald-400 bg-slate-950/80 px-4 py-2 rounded-lg border border-emerald-900/50 uppercase tracking-widest animate-pulse">
+                                Preparado para iniciar
+                            </div>
+                        </div>
+
+                        <!-- ROUND GRIDS -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <!-- ESPAÑA DOTS -->
+                            <div class="bg-slate-950/40 p-3 rounded-lg border border-slate-800">
+                                <span class="text-[10px] font-bold text-red-500 uppercase tracking-wider block mb-2">🇪🇸 España (Orden)</span>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex space-x-1.5" id="esp-dots">
+                                        <span class="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-700 block"></span>
+                                        <span class="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-700 block"></span>
+                                        <span class="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-700 block"></span>
+                                        <span class="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-700 block"></span>
+                                        <span class="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-700 block"></span>
+                                    </div>
+                                    <span id="pateador-actual-esp" class="text-xs font-semibold text-slate-300 truncate max-w-[100px]">-</span>
+                                </div>
+                            </div>
+                            <!-- ARGENTINA DOTS -->
+                            <div class="bg-slate-950/40 p-3 rounded-lg border border-slate-800">
+                                <span class="text-[10px] font-bold text-sky-400 uppercase tracking-wider block mb-2">🇦🇷 Argentina (Orden)</span>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex space-x-1.5" id="arg-dots">
+                                        <span class="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-700 block"></span>
+                                        <span class="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-700 block"></span>
+                                        <span class="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-700 block"></span>
+                                        <span class="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-700 block"></span>
+                                        <span class="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-700 block"></span>
+                                    </div>
+                                    <span id="pateador-actual-arg" class="text-xs font-semibold text-slate-300 truncate max-w-[100px]">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CONTROL BUTTONS -->
+                    <div class="mt-6 flex flex-wrap gap-4 justify-between border-t border-slate-800/80 pt-4">
+                        <div class="flex space-x-3">
+                            <button id="btn-historia" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 px-4 py-2.5 rounded-lg text-sm font-semibold tracking-wide text-slate-200 transition">
+                                <i class="fa-solid fa-history mr-2"></i> Ver Tanda Histórica
+                            </button>
+                            <button id="btn-stochastic" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 px-4 py-2.5 rounded-lg text-sm font-semibold tracking-wide text-slate-200 transition">
+                                <i class="fa-solid fa-dice mr-2"></i> Simular Estocástico (DMD)
+                            </button>
+                        </div>
+                        <button id="btn-action" class="bg-gradient-to-tr from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-slate-950 font-bold px-6 py-2.5 rounded-lg tracking-wide transition shadow-lg shadow-emerald-950/20">
+                            Iniciar Tanda
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PANEL DERECHO: CONTEXTO MÈTRICO & LOG -->
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between min-h-[480px]">
+                    <div>
+                        <div class="border-b border-slate-800 pb-3 mb-4">
+                            <h3 class="font-bold text-white text-sm uppercase tracking-wider">Bitácora de Campo en Tiempo Real</h3>
+                            <span class="text-xs text-slate-400">Eventos sincronizados con audio sintético</span>
+                        </div>
+                        
+                        <!-- COMMENTARY LOG CONTAINER -->
+                        <div id="log-container" class="h-64 overflow-y-auto space-y-3.5 pr-2 custom-scrollbar text-xs mono text-slate-300 flex flex-col justify-end">
+                            <div class="text-slate-500 border-l border-slate-800 pl-3">Esperando activación de simulación táctica...</div>
+                        </div>
+                    </div>
+
+                    <!-- METRIC STATS PANEL -->
+                    <div class="bg-[#0f172a] border border-slate-800 rounded-xl p-4 mt-6">
+                        <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest block mb-2">Variables de Entorno Penaltis</span>
+                        <div class="grid grid-cols-2 gap-4 text-xs">
+                            <div>
+                                <span class="text-slate-400 block">Fatiga Biológica (Efectividad):</span>
+                                <span class="font-bold text-white">ESP: 74% | ARG: 70%</span>
+                            </div>
+                            <div>
+                                <span class="text-slate-400 block">Calibración de Paradas:</span>
+                                <span class="font-bold text-white">Dibu: 32% | Simón: 28%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: TACTICAL ANALYSIS -->
+        <section id="tactical" class="grid grid-cols-1 lg:grid-cols-2 gap-8 scroll-mt-20">
+            <!-- COL 1: ESPAÑA -->
+            <div class="bg-slate-900/30 border border-slate-800/80 rounded-2xl p-6 lg:p-8 space-y-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-1.5 h-6 bg-red-600 rounded-full"></div>
+                    <h3 class="text-xl font-extrabold text-white tracking-tight">España: El Modelo de Control Coral</h3>
+                </div>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    La selección de Luis de la Fuente se consolida como el bloque de mayor consistencia del torneo tras anular tácticamente a Francia en las semifinales. Su éxito reside en una estructura asimétrica orientada a la compensación espacial de las cargas de fatiga.
+                </p>
+                <div class="space-y-4">
+                    <div class="bg-slate-950/40 p-4 rounded-xl border border-slate-800 text-xs">
+                        <span class="font-bold text-white text-sm block mb-1">Mecanismo de Mitigación Térmica</span>
+                        <p class="text-slate-400 leading-relaxed">
+                            Al circular de forma interior mediante la triangulación de <strong>Rodri, Fabián Ruiz y Dani Olmo</strong>, España ha acumulado <strong>3,971 pases precisos</strong> en el torneo, controlando la variable clima (\(\delta_{\text{clima}}\)) al obligar a los rivales a desgastarse corriendo tras el esférico bajo temperaturas superiores a los 30 °C.
+                        </p>
+                    </div>
+                    <div class="bg-slate-950/40 p-4 rounded-xl border border-slate-800 text-xs">
+                        <span class="font-bold text-white text-sm block mb-1">Amplitud y Coberturas</span>
+                        <p class="text-slate-400 leading-relaxed">
+                            La proyección profunda de Pedro Porro (nombrado MVP con un golazo en Arlington) es balanceada en el flanco opuesto por la marca rígida de <strong>Marc Cucurella</strong> (elogiado por Thierry Henry), quien en fase ofensiva actúa como un tercer central para prevenir transiciones letales.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COL 2: ARGENTINA -->
+            <div class="bg-slate-900/30 border border-slate-800/80 rounded-2xl p-6 lg:p-8 space-y-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-1.5 h-6 bg-sky-400 rounded-full"></div>
+                    <h3 class="text-xl font-extrabold text-white tracking-tight">Argentina: Resiliencia &amp; Pizarra de Emergencia</h3>
+                </div>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    La campeona defensora ha tenido un camino agónico que ha desgastado al límite el físico de sus pilares más veteranos. Sin embargo, la madurez de Lionel Scaloni en el diseño táctico les permite sobrevivir mediante la jerarquía individual.
+                </p>
+                <div class="space-y-4">
+                    <div class="bg-slate-950/40 p-4 rounded-xl border border-slate-800 text-xs">
+                        <span class="font-bold text-white text-sm block mb-1">La Variación Simeone por la baja de De Paul</span>
+                        <p class="text-slate-400 leading-relaxed">
+                            Ante la baja crítica por lesión muscular de Rodrigo De Paul, Scaloni introduce a <strong>Giuliano Simeone (4-1-3-2)</strong> en el interior derecho. Su labor no es de amplitud ofensiva, sino de realizar repliegues rigurosos para auxiliar a Nahuel Molina frente a la velocidad de Williams.
+                        </p>
+                    </div>
+                    <div class="bg-slate-950/40 p-4 rounded-xl border border-slate-800 text-xs">
+                        <span class="font-bold text-white text-sm block mb-1">Deambulación Inteligente de Lionel Messi</span>
+                        <p class="text-slate-400 leading-relaxed">
+                            A sus 39 años, Lionel Messi lidera el torneo con <strong>8 goles</strong> deambulando fuera de la zona de presión para conservar energía, activándose de forma letal en el último tercio (lidera en conducciones explosivas de larga distancia con 22 acciones registradas).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: MATHEMATICAL APPENDIX -->
+        <section id="math" class="bg-[#0f172a]/60 border border-slate-800 rounded-2xl p-6 lg:p-8 space-y-6 scroll-mt-20">
+            <div class="flex items-center space-x-3">
+                <div class="w-1.5 h-6 bg-emerald-500 rounded-full"></div>
+                <h2 class="text-2xl font-extrabold text-white tracking-tight">Apéndice Metodológico: El Motor Predictivo DMD-26</h2>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed">
+                El sistema predictivo <strong>DMD-26</strong> se rige bajo un enfoque bayesiano de alta resolución. Para superar las limitaciones de los modelos simples de Poisson, se integra una corrección de Dixon-Coles bivariada que corrige la subestimación de empates en partidos de eliminación directa de corta duración.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs font-mono bg-slate-950/60 p-6 rounded-xl border border-slate-800/80">
+                <div class="space-y-4">
+                    <h3 class="text-sm font-bold text-white">1. Modelización de la Tasa de Goles Conjunta</h3>
+                    <p class="text-slate-400">
+                        La intensidad goleadora del equipo local o designado como "A" (\(\lambda\)) y el visitante o "B" (\(\mu\)) se modula multiplicativamente integrando el estrés metabólico (\(\delta_{\text{clima}}\)):
+                    </p>
+                    <div class="text-center text-sm font-extrabold text-white my-3">
+                        $$\lambda = \alpha_i \beta_j \delta_{\text{clima}}$$
+                        $$\mu = \alpha_j \beta_i$$
+                    </div>
+                    <p class="text-slate-400">
+                        Donde \(\alpha\) es la fuerza ofensiva y \(\beta\) la debilidad defensiva. El modificador de clima toma valor de <strong>0.88</strong> en temperaturas superiores a 30 °C para equipos que manejan posesiones menores al 45% (penalizando su precisión de pases).
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-sm font-bold text-white">2. Inferencia Bayesiana Dinámica en Tiempo Real</h3>
+                    <p class="text-slate-400">
+                        Para evitar sobrerreacciones a factores estocásticos y penaltis azarosos, los priors se actualizan tras cada partido utilizando un filtro de paso único fundamentado en la diferencia entre los goles esperados (xG) y las tasas proyectadas:
+                    </p>
+                    <div class="text-center text-sm font-extrabold text-white my-3">
+                        $$\alpha_{i,\text{nuevo}} = \alpha_{i,\text{anterior}} + \eta(xG_{\text{home}} - x_{\text{esperado}})$$
+                        $$\beta_{j,\text{nuevo}} = \beta_{j,\text{anterior}} + \eta(y_{\text{esperado}} - xG_{\text{away}})$$
+                    </div>
+                    <p class="text-slate-400">
+                        Donde la tasa de aprendizaje se calibra rígidamente en \(\eta = 0.12\), lo que permite al modelo olvidar de forma adaptativa los priors de hace 24 meses y ponderar de manera óptima el estado de forma física en vivo del certamen.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: PATHWAYS TO FINAL -->
+        <section id="path" class="space-y-6 scroll-mt-20">
+            <div class="flex items-center space-x-3">
+                <div class="w-1.5 h-6 bg-emerald-500 rounded-full"></div>
+                <h2 class="text-2xl font-extrabold text-white tracking-tight">La Ruta a la Final del Mundial 2026</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs">
+                <!-- COL ESPAÑA -->
+                <div class="bg-slate-900/30 border border-slate-800 rounded-xl p-5 space-y-4">
+                    <h3 class="font-extrabold text-red-500 text-sm uppercase tracking-wider border-b border-slate-800 pb-2">🇪🇸 Camino de España</h3>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between border-b border-slate-800/40 pb-1.5"><span class="text-slate-400">Grupo H - Fecha 1:</span> <span class="font-bold">Cabo Verde 0-0 España</span></li>
+                        <li class="flex justify-between border-b border-slate-800/40 pb-1.5"><span class="text-slate-400">Grupo H - Fecha 2:</span> <span class="font-bold">España 4-0 Arabia Saudita</span></li>
+                        <li class="flex justify-between border-b border-slate-800/40 pb-1.5"><span class="text-slate-400">Grupo H - Fecha 3:</span> <span class="font-bold">España 1-0 Uruguay (Bielsa)</span></li>
+                        <li class="flex justify-between border-b border-slate-800/40 pb-1.5"><span class="text-slate-400">Ronda de 32:</span> <span class="font-bold">España 3-0 Austria</span></li>
+                        <li class="flex justify-between border-b border-slate-800/40 pb-1.5"><span class="text-slate-400">Octavos de Final:</span> <span class="font-bold">Portugal 0-1 España</span></li>
+                        <li class="flex justify-between border-b border-slate-800/40 pb-1.5"><span class="text-slate-400">Cuartos de Final:</span> <span class="font-bold">España 2-1 Bélgica (goles de Fabián/Merino)</span></li>
+                        <li class="flex justify-between pb-1.5"><span class="text-slate-400">Semifinal ( Dallas ):</span> <span class="font-bold text-emerald-400">España 2-0 Francia (Oyarzabal 22', Porro 58')</span></li>
+                    </ul>
+                </div>
+                <!-- COL ARGENTINA -->
+                <div class="bg-slate-900/30 border border-slate-800 rounded-xl p-5 space-y-4">
+                    <h3 class="font-extrabold text-sky-400 text-sm uppercase tracking-wider border-b border-slate-800 pb-2">🇦🇷 Camino de Argentina</h3>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between border-b border-slate-800/40 pb-1.5"><span class="text-slate-400">Grupo J - Fecha 1:</span> <span class="font-bold">Argentina 3-0 Argelia</span></li>
+                        <li class="flex justify-between border-b border-slate-800/40 pb-1.5"><span class="text-slate-400">Grupo J - Fecha 2:</span> <span class="font-bold">Argentina 2-0 Austria (récord de goles de Messi)</span></li>
+                        <li class="flex justify-between border-b border-slate-800/40 pb-1.5"><span class="text-slate-400">Grupo J - Fecha 3:</span> <span class="font-bold">Argentina 3-1 Jordania</span></li>
+                        <li class="flex justify-between border-b border-slate-800/40 pb-1.5"><span class="text-slate-400">Ronda de 32:</span> <span class="font-bold">Argentina 3-2 Cabo Verde (Prórroga)</span></li>
+                        <li class="flex justify-between border-b border-slate-800/40 pb-1.5"><span class="text-slate-400">Octavos de Final:</span> <span class="font-bold">Argentina 3-2 Egipto (Remontada 0-2)</span></li>
+                        <li class="flex justify-between border-b border-slate-800/40 pb-1.5"><span class="text-slate-400">Cuartos de Final:</span> <span class="font-bold">Argentina 3-1 Suiza (Prórroga)</span></li>
+                        <li class="flex justify-between pb-1.5"><span class="text-slate-400">Semifinal ( Atlanta ):</span> <span class="font-bold text-emerald-400">Argentina (W) - (L) Inglaterra</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER WITH SOURCES -->
+    <footer class="border-t border-slate-800 bg-[#070a13] py-12 mt-16 text-slate-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="font-bold text-slate-300 uppercase tracking-widest mb-3">Ecosistema de Datos</h4>
+                    <p class="leading-relaxed">
+                        Este portal unifica flujos de datos certificados procedentes de la FIFA Football Data Platform y el FIFA Data Hub, cruzados programáticamente en Sportscode.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-300 uppercase tracking-widest mb-3">Metodología de Tasación</h4>
+                    <p class="leading-relaxed">
+                        La consistencia nominal se calibra basándose en los modelos econométricos y el valor de mercado calculado por la secretaría técnica y la calculadora del CIES Football Observatory.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-300 uppercase tracking-widest mb-3">Proveedor de xG</h4>
+                    <p class="leading-relaxed">
+                        Modelo de goles esperados unificado a partir de la granularidad de eventos de StatsBomb, registrando un Brier Score de calibración óptimo de 0.0806.
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-slate-800/60 pt-6 text-center">
+                <span>© 2026 NotebookLM &amp; DMD-26 System. Todos los derechos reservados.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SIMULATOR JS SCRIPT -->
+    <script>
+        // Audio Synthesizer utilizando Web Audio API para simular pito y chimes
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        
+        function playWhistle() {
+            try {
+                let osc = audioCtx.createOscillator();
+                let gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.1);
+                gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.45);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.5);
+            } catch(e) {}
+        }
+
+        function playSuccess() {
+            try {
+                let osc = audioCtx.createOscillator();
+                let gain = audioCtx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
+                osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1); // E5
+                osc.frequency.setValueAtTime(783.99, audioCtx.currentTime + 0.2); // G5
+                gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.45);
+            } catch(e) {}
+        }
+
+        function playFail() {
+            try {
+                let osc = audioCtx.createOscillator();
+                let gain = audioCtx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(150, audioCtx.currentTime);
+                osc.frequency.linearRampToValueAtTime(80, audioCtx.currentTime + 0.35);
+                gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.45);
+            } catch(e) {}
+        }
+
+        // Simulación State
+        const playersArg = ["Lionel Messi", "Julián Álvarez", "Enzo Fernández", "Alexis Mac Allister", "Lautaro Martínez", "Cristian Romero", "Nicolás Otamendi"];
+        const playersEsp = ["Mikel Oyarzabal", "Dani Olmo", "Rodri Hernández", "Lamine Yamal", "Nico Williams", "Pedro Porro", "Aymeric Laporte"];
+
+        const histTanda = [
+            { esp: true, name: "Lionel Messi", team: "ARG", goal: true, x: 20, y: 70, gkDir: "left", gkAction: "vuela tarde, tiro cruzado suave." },
+            { esp: false, name: "Mikel Oyarzabal", team: "ESP", goal: true, x: 80, y: 35, gkDir: "right", gkAction: "Dibu vuela pero el balón entra raso y potente." },
+            { esp: true, name: "Julián Álvarez", team: "ARG", goal: true, x: 25, y: 25, gkDir: "left", gkAction: "derechazo violento cruzado inalcanzable." },
+            { esp: false, name: "Dani Olmo", team: "ESP", goal: false, x: 75, y: 45, gkDir: "right", gkAction: "¡DIBU VUELA Y DESVÍA CON LA MANO CAMBIADA!" },
+            { esp: true, name: "Enzo Fernández", team: "ARG", goal: true, x: 30, y: 55, gkDir: "left", gkAction: "tiro mordido que toca Simón pero entra llorando." },
+            { esp: false, name: "Rodri Hernández", team: "ESP", goal: true, x: 50, y: 15, gkDir: "center", gkAction: "fusila al centro alto con frialdad de capitán." },
+            { esp: true, name: "Alexis Mac Allister", team: "ARG", goal: false, x: 65, y: 40, gkDir: "right", gkAction: "¡UNAI SIMÓN BLOCA CON REACCIÓN MAGNÍFICA!" },
+            { esp: false, name: "Lamine Yamal", team: "ESP", goal: true, x: 50, y: 60, gkDir: "left", gkAction: "¡EJECUTA UNA VASELINA PANENKA ESCALOFRIANTE!" },
+            { esp: true, name: "Lautaro Martínez", team: "ARG", goal: true, x: 15, y: 15, gkDir: "left", gkAction: "derechazo letal al ángulo superior." },
+            { esp: false, name: "Nico Williams", team: "ESP", goal: true, x: 85, y: 75, gkDir: "left", gkAction: "disparo raso inalcanzable lamiendo el poste." },
+            { esp: true, name: "Cristian Romero", team: "ARG", goal: false, x: 50, y: 50, gkDir: "center", gkAction: "¡UNAI SIMÓN REPELE EL MISIL CON LAS RODILLAS!" },
+            { esp: false, name: "Pedro Porro", team: "ESP", goal: true, x: 85, y: 15, gkDir: "left", gkAction: "¡LATIGAZO A LA ESCUADRA DERECHA! ¡ESPAÑA CAMPEONA!" }
+        ];
+
+        let mode = "idle"; // "historical", "stochastic"
+        let currentKickerIndex = 0;
+        let runningScore = { esp: 0, arg: 0 };
+        let espPenResults = [];
+        let argPenResults = [];
+
+        const logContainer = document.getElementById("log-container");
+        const btnAction = document.getElementById("btn-action");
+        const btnHistoria = document.getElementById("btn-historia");
+        const btnStochastic = document.getElementById("btn-stochastic");
+        const scoreEspLabel = document.getElementById("score-esp");
+        const scoreArgLabel = document.getElementById("score-arg");
+        const gkFrame = document.getElementById("gk-frame");
+        const gkName = document.getElementById("gk-name");
+        const ballTarget = document.getElementById("ball-target");
+        const visualCue = document.getElementById("visual-cue");
+        const pateadorEspLabel = document.getElementById("pateador-actual-esp");
+        const pateadorArgLabel = document.getElementById("pateador-actual-arg");
+
+        function resetSimulation() {
+            currentKickerIndex = 0;
+            runningScore = { esp: 0, arg: 0 };
+            espPenResults = [];
+            argPenResults = [];
+            scoreEspLabel.textContent = "0";
+            scoreArgLabel.textContent = "0";
+            logContainer.innerHTML = "";
+            pateadorEspLabel.textContent = "-";
+            pateadorArgLabel.textContent = "-";
+            ballTarget.classList.add("hidden");
+            visualCue.classList.add("hidden");
+            gkFrame.style.left = "calc(50% - 3rem)";
+            gkName.textContent = "SIMÓN";
+
+            resetDots("esp-dots");
+            resetDots("arg-dots");
+        }
+
+        function resetDots(id) {
+            const container = document.getElementById(id);
+            container.innerHTML = `
+                <span class="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-700 block"></span>
+                <span class="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-700 block"></span>
+                <span class="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-700 block"></span>
+                <span class="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-700 block"></span>
+                <span class="w-3.5 h-3.5 rounded-full bg-slate-800 border border-slate-700 block"></span>
+            `;
+        }
+
+        function appendLog(text, badgeType) {
+            let badgeColor = "text-slate-400 bg-slate-900 border-slate-800";
+            if (badgeType === "ESP") badgeColor = "text-red-500 bg-red-950/20 border-red-900/30";
+            if (badgeType === "ARG") badgeColor = "text-sky-400 bg-sky-950/20 border-sky-900/30";
+            if (badgeType === "GOAL") badgeColor = "text-emerald-400 bg-emerald-950/20 border-emerald-900/30 font-bold";
+            if (badgeType === "MISS") badgeColor = "text-red-400 bg-red-950/20 border-red-900/30 font-bold";
+
+            const item = document.createElement("div");
+            item.className = "flex space-x-2 items-start border-l-2 pl-3 border-slate-800 py-1";
+            item.innerHTML = `
+                <span class="px-1.5 py-0.5 rounded border text-[10px] uppercase font-bold tracking-wider ${badgeColor}">${badgeType}</span>
+                <span class="flex-1">${text}</span>
+            `;
+            logContainer.appendChild(item);
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+
+        function updateDots(dotsId, results) {
+            const container = document.getElementById(dotsId);
+            container.innerHTML = "";
+            for (let i = 0; i < Math.max(5, results.length); i++) {
+                const dot = document.createElement("span");
+                dot.className = "w-3.5 h-3.5 rounded-full block border transition-all duration-300";
+                if (results[i] === true) {
+                    dot.className += " bg-emerald-500 border-emerald-400 shadow-sm shadow-emerald-400/20";
+                } else if (results[i] === false) {
+                    dot.className += " bg-red-500 border-red-400 shadow-sm shadow-red-400/20";
+                } else {
+                    dot.className += " bg-slate-800 border-slate-700";
+                }
+                container.appendChild(dot);
+            }
+        }
+
+        // SIMULAR PASO HISTÓRICO
+        function playHistoricalStep() {
+            if (currentKickerIndex >= histTanda.length) {
+                appendLog("--- SIMULACIÓN FINALIZADA ---", "SYS");
+                btnAction.disabled = true;
+                return;
+            }
+
+            const step = histTanda[currentKickerIndex];
+            playWhistle();
+
+            // Actualizar arquero de turno
+            const isArgKicking = step.team === "ARG";
+            if (isArgKicking) {
+                gkName.textContent = "SIMÓN (ESP)";
+                pateadorArgLabel.textContent = step.name;
+                pateadorEspLabel.textContent = "-";
+            } else {
+                gkName.textContent = "MARTÍNEZ (ARG)";
+                pateadorEspLabel.textContent = step.name;
+                pateadorArgLabel.textContent = "-";
+            }
+
+            // Animación Arquero
+            if (step.gkDir === "left") {
+                gkFrame.style.left = "calc(25% - 1.5rem)";
+            } else if (step.gkDir === "right") {
+                gkFrame.style.left = "calc(75% - 1.5rem)";
+            } else {
+                gkFrame.style.left = "calc(50% - 1.5rem)";
+            }
+
+            // Animación Balón
+            ballTarget.classList.remove("hidden");
+            ballTarget.style.left = step.x + "%";
+            ballTarget.style.top = step.y + "%";
+
+            setTimeout(() => {
+                if (step.goal) {
+                    playSuccess();
+                    visualCue.textContent = "¡GOOOOL!";
+                    visualCue.className = "absolute text-sm font-bold text-emerald-400 bg-slate-950/80 px-4 py-2 rounded-lg border border-emerald-900/50 uppercase tracking-widest";
+                    if (isArgKicking) {
+                        runningScore.arg++;
+                        argPenResults.push(true);
+                        updateDots("arg-dots", argPenResults);
+                    } else {
+                        runningScore.esp++;
+                        espPenResults.push(true);
+                        updateDots("esp-dots", espPenResults);
+                    }
+                    appendLog(`${step.name} dispara con clase... ¡GOOOL! ${step.gkAction}`, "GOAL");
+                } else {
+                    playFail();
+                    visualCue.textContent = "¡FALLADO!";
+                    visualCue.className = "absolute text-sm font-bold text-red-500 bg-slate-95
